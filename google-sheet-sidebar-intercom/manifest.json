@@ -1,0 +1,30 @@
+{
+  "name": "Google Sheet Sidebar Intercom",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://docs.google.com/spreadsheets/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://*.googleusercontent.com/blank"
+      ],
+      "js": [
+        "sidePanelReceiver.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ]
+}
